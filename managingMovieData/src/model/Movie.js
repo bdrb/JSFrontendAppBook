@@ -52,7 +52,24 @@ Movie.saveAll = function () {
 };
 Movie.clearData = function () {
     if (confirm("Do you really want erase all movie data?")) {
-        Movie.instances = {};
+        localStorage['movies'] = {};
     }
 };
-Movie.createTestData = function () {};
+Movie.createTestData = function () {
+    Movie.instances = {};
+    Movie.instances["01"] = new Movie({
+        movieId: "01",
+        title: "Qw - wq?",
+        reliseData: new Date(1987, 12, 09);
+    });
+    Movie.instances["02"] = new Movie({
+        movieId: "02",
+        title: "Hh: bbb jh cooooo.",
+        reliseData: new Date(1976, 10, 19);
+    });
+    Movie.instances["03"] = new Movie({
+        movieId: "03",
+        title: "Nmn & Llloi",
+        reliseData: new Date(1965, 08, 29);
+    });
+};

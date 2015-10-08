@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>XHTML5 Template Example</title>
+	</head>
+	<body>
+		<h1>XHTML5 Template Example</h1>
+		<section><h1>First Section Title</h1>
+	  
+		</section>
+	 
+		<script type = "text/javascript">
+			var pers = {};
+			pers["01"] = {a: "1", b:"2"};
+			pers["02"] = {c: "3", d:"4"};
+			pers["03"] = {e: "5", f:"6"};
+			try {
+				localStorage["PersonTable"] = JSON.stringify(pers);	
+			} catch(e) {
+				alert("Error when writing\n" + e);
+			}
+			
+			var pers2 = {};
+			try {
+				pers2 = JSON.parse(localStorage["PersonTable"]);
+				alert(JSON.stringify(pers2));
+			} catch (e) {
+				alert("Error when reading\n" + e);
+			}
+		</script> 
+	</body>
+</html>

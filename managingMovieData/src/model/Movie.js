@@ -1,27 +1,58 @@
 function Movie(slots) {
-	this.movieId = slots.movieId;
-	this.title = slots.title;
-	this.reliseDate = slots.reliseDate;
+    this.movieId = slots.movieId;
+    this.title = slots.title;
+    this.reliseDate = slots.reliseDate;
 }
 
 Movie.instances = {};
 
 Movie.add = function (slots) {
-	var movie = new Movie(slots);
-	Movie.instances[movie.movieId] = movie;
+    var movie = new Movie(slots);
+    Movie.instances[movie.movieId] = movie;
 };
 Movie.loadAll = function () {
-	var i = 0, moviesString = "";
-	moviesString = LocalStorage['movies'];
-	keys = Ob
+    var i = 0,
+        key = "",
+        keys = [],
+        movies = {},
+        moviesString = "";
+
+    moviesString = LocalStorage['movies'];
+    movies = JSON.parse(moviesString);
+    keys = Object.keys(movies);
+
+    Movie.instances = {};
+    for (i = 0; i < keys.length; i++) {
+        key = keys[i];
+        Movie.instances[key] = Movie.convertRow2Obj(movies[key]);
+    }
+
 };
 Movie.convertRow2Obj = function (movieRow) {
-	var movie = new Movie(movieRow);
-	return movie;
+    var movie = new Movie(movieRow);
+    return movie;
 };
-Movie.update = function () {};
-Movie.destroy = function () {};
-Movie.saveAll = function () {};
-Movie.clearData = function () {};
+Movie.update = function (slots) {
+    Movie.instances[slot.movieId].title = slots.title;
+    Movie.instances[slot.movieId].reliseDate = slots.reliseDate;
+};
+Movie.destroy = function (movieId) {
+    delete Movie.instances[movieId];
+};
+Movie.saveAll = function () {
+    var error = false;
+    try {
+        localStorage['movies'] = JSON.stringify(Movie.instances);
+    } catch (error) {
+        console.log("saving error : " + e);
+    }
+    if (!error) {
+        alert("saving error : " + e);
+    }
+};
+Movie.clearData = function () {
+    if (confirm("Do you really want erase all movie data?")) {
+        Movie.instances = {};
+    }
+};
 Movie.createTestData = function () {};
-

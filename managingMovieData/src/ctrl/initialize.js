@@ -1,0 +1,5 @@
+md = {
+	model: {},
+	view: {},
+	ctrl {}
+};

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Minimal JS Front-End App Example</title>
+		<script src="src/model/Movie.js"></script>
+	</head>
+	<body>
+		<h1>Managing Movie Data</h1>
+		<h2>An Example #2 of a Minimal JavaScript Front-End App</h2>
+		<p>This app supports the following operations:</p>
+		<menu>
+			<li><a href="listMovies.html"><button type="button">
+				List all movies
+				</button></a></li>
+			<li><a href="createMovie.html"><button type="button">
+				Add a new movie
+				</button></a></li>
+			<li><a href="updateMovie.html"><button type="button">
+				Update a movie
+				</button></a></li>
+			<li><a href="deleteMovie.html"><button type="button">
+				Delete a movie
+				</button></a></li>
+			<li><button type="button" onclick="Movie.clearData()">
+				Clear database
+				</button></li>
+			<li><button type="button" onclick="Movie.createTestData()">
+				Create test data
+				</button></li>
+		</menu>
+	</body>
+</html>

@@ -10,6 +10,7 @@ Movie.add = function (slots) {
     var movie = new Movie(slots);
     Movie.instances[movie.movieId] = movie;
 };
+
 Movie.loadAll = function () {
     var i = 0,
         key = "",
@@ -17,17 +18,26 @@ Movie.loadAll = function () {
         movies = {},
         moviesString = "";
 
-    moviesString = LocalStorage['movies'];
-    movies = JSON.parse(moviesString);
-    keys = Object.keys(movies);
-
-    Movie.instances = {};
-    for (i = 0; i < keys.length; i++) {
-        key = keys[i];
-        Movie.instances[key] = Movie.convertRow2Obj(movies[key]);
+    try {
+        if (localStorage['movies']) {
+            moviesString = localStorage['movies'];
+        }
+    } catch (e) {
+        alert("local storage 'movie' reading error:" + e);
     }
 
+    if (moviesString) {
+        movies = JSON.parse(moviesString);
+        keys = Object.keys(movies);
+
+        Movie.instances = {};
+        for (i = 0; i < keys.length; i++) {
+            key = keys[i];
+            Movie.instances[key] = Movie.convertRow2Obj(movies[key]);
+        }
+    }
 };
+
 Movie.convertRow2Obj = function (movieRow) {
     var movie = new Movie(movieRow);
     return movie;
@@ -60,16 +70,16 @@ Movie.createTestData = function () {
     Movie.instances["01"] = new Movie({
         movieId: "01",
         title: "Qw - wq?",
-        reliseData: new Date(1987, 12, 09);
+        reliseData: new Date(1987, 12, 09)
     });
     Movie.instances["02"] = new Movie({
         movieId: "02",
         title: "Hh: bbb jh cooooo.",
-        reliseData: new Date(1976, 10, 19);
+        reliseData: new Date(1976, 10, 19)
     });
     Movie.instances["03"] = new Movie({
         movieId: "03",
         title: "Nmn & Llloi",
-        reliseData: new Date(1965, 08, 29);
+        reliseData: new Date(1965, 08, 29)
     });
 };

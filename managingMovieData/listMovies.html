@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Simple JS Front-End App Example</title>
+    <script src="src/ctrl/initialize.js"></script>
+    <script src="src/model/Movie.js"></script>
+    <script src="src/view/listMovies.js"></script>
+    <script>
+        window.addEventListener("load",
+            md.view.listMovies.setupUserInterface);
+    </script>
+</head>
+
+<body>
+    <h1>Public Library: List all books</h1>
+    <table id="movies">
+        <thead>
+            <tr>
+                <th>Movie ID</th>
+                <th>Title</th>
+                <th>Relise date</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <nav><a href="index.html">Back to main menu</a></nav>
+</body>
+
+</html>

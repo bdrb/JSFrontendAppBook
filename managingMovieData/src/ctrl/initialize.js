@@ -1,5 +1,5 @@
-md = {
+var md = {
 	model: {},
 	view: {},
-	ctrl {}
+	ctrl: {}
 };

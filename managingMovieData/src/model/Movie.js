@@ -56,7 +56,7 @@ Movie.saveAll = function () {
     } catch (error) {
         console.log("saving error : " + e);
     }
-    if (!error) {
+    if (error) {
         alert("saving error : " + e);
     }
 };
@@ -70,16 +70,17 @@ Movie.createTestData = function () {
     Movie.instances["01"] = new Movie({
         movieId: "01",
         title: "Qw - wq?",
-        reliseData: new Date(1987, 12, 09)
+        reliseDate: new Date(1987, 11, 09).toISOString()
     });
     Movie.instances["02"] = new Movie({
         movieId: "02",
         title: "Hh: bbb jh cooooo.",
-        reliseData: new Date(1976, 10, 19)
+        reliseDate: new Date(1976, 9, 19).toISOString()
     });
     Movie.instances["03"] = new Movie({
         movieId: "03",
         title: "Nmn & Llloi",
-        reliseData: new Date(1965, 08, 29)
+        reliseDate: new Date(1965, 08, 29).toISOString()
     });
+    Movie.saveAll();
 };

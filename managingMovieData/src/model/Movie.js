@@ -43,8 +43,8 @@ Movie.convertRow2Obj = function (movieRow) {
     return movie;
 };
 Movie.update = function (slots) {
-    Movie.instances[slot.movieId].title = slots.title;
-    Movie.instances[slot.movieId].reliseDate = slots.reliseDate;
+    Movie.instances[slots.movieId].title = slots.title;
+    Movie.instances[slots.movieId].reliseDate = slots.reliseDate;
 };
 Movie.destroy = function (movieId) {
     delete Movie.instances[movieId];

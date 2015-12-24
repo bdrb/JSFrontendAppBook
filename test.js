@@ -13,7 +13,7 @@ var i = 0;
 for(i = 0; i < a.length;i++){
   console.log(i, a[i]);
 }
-
+//--------------
 a.forEach(function(elem) {
   console.log(elem);
 });

@@ -22,7 +22,7 @@ md.view.updateMovie = {
             var book = null,
                 key = selectMovieEl.value;
             if (key) {
-                book = Movie.instances[key];
+                movie = Movie.instances[key];
                 formEl.movieId.value = movie.movieId;
                 formEl.title.value = movie.title;
                 formEl.reliseDate.value = movie.reliseDate;
@@ -32,7 +32,7 @@ md.view.updateMovie = {
         });
         saveButton.addEventListener("click", md.view.updateMovie.handleUpdateButtonClickEvent);
         window.addEventListener("beforeunload", function () {
-            Book.saveAll();
+            Movie.saveAll();
         });
     },
     handleUpdateButtonClickEvent: function () {
